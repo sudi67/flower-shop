@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,6 +14,7 @@ export function Header({ onCartOpen }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { totalItems } = useCart();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,13 +24,6 @@ export function Header({ onCartOpen }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
-  };
 
   return (
     <motion.header
@@ -41,40 +36,57 @@ export function Header({ onCartOpen }: HeaderProps) {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
-            className="heading-md text-rose-dark cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            onClick={() => scrollToSection('hero')}
-          >
-            Blossom & Bloom
-          </motion.div>
+          <Link to="/">
+            <motion.div
+              className="heading-md text-rose-dark cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            >
+              Blossom & Bloom
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="body-base text-text-dark hover:text-rose transition-colors"
+            <Link
+              to="/"
+              className={`body-base transition-colors ${
+                location.pathname === '/'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection('products')}
-              className="body-base text-text-dark hover:text-rose transition-colors"
+            </Link>
+            <Link
+              to="/shop"
+              className={`body-base transition-colors ${
+                location.pathname === '/shop'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               Shop
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="body-base text-text-dark hover:text-rose transition-colors"
+            </Link>
+            <Link
+              to="/about"
+              className={`body-base transition-colors ${
+                location.pathname === '/about'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="body-base text-text-dark hover:text-rose transition-colors"
+            </Link>
+            <Link
+              to="/contact"
+              className={`body-base transition-colors ${
+                location.pathname === '/contact'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -116,30 +128,50 @@ export function Header({ onCartOpen }: HeaderProps) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="body-base text-text-dark hover:text-rose transition-colors text-left"
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`body-base transition-colors text-left ${
+                location.pathname === '/'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection('products')}
-              className="body-base text-text-dark hover:text-rose transition-colors text-left"
+            </Link>
+            <Link
+              to="/shop"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`body-base transition-colors text-left ${
+                location.pathname === '/shop'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               Shop
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="body-base text-text-dark hover:text-rose transition-colors text-left"
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`body-base transition-colors text-left ${
+                location.pathname === '/about'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="body-base text-text-dark hover:text-rose transition-colors text-left"
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`body-base transition-colors text-left ${
+                location.pathname === '/contact'
+                  ? 'text-rose font-medium'
+                  : 'text-text-dark hover:text-rose'
+              }`}
             >
               Contact
-            </button>
+            </Link>
           </motion.nav>
         )}
       </div>

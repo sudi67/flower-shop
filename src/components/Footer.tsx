@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -29,36 +30,36 @@ export function Footer() {
             <h4 className="heading-sm text-text-dark mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#hero"
+                <Link
+                  to="/"
                   className="body-sm text-text-light hover:text-rose transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#products"
+                <Link
+                  to="/shop"
                   className="body-sm text-text-light hover:text-rose transition-colors"
                 >
                   Shop
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#about"
+                <Link
+                  to="/about"
                   className="body-sm text-text-light hover:text-rose transition-colors"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="body-sm text-text-light hover:text-rose transition-colors"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,14 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section
@@ -55,8 +51,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Where Nature Meets{' '}
-            <span className="text-rose-dark">Elegance</span>
+            Where Every Bloom{' '}
+            <span className="text-rose-dark">Tells a Story</span>
           </motion.h1>
 
           <motion.p
@@ -65,8 +61,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Handcrafted floral arrangements with locally sourced blooms,
-            delivered with love and sustainability at heart.
+            Artisan floral arrangements crafted with passion, sourced sustainably
+            from local growers, and designed to celebrate life's most beautiful
+            moments.
           </motion.p>
 
           <motion.div
@@ -78,7 +75,7 @@ export function Hero() {
             <Button
               size="lg"
               className="bg-rose hover:bg-rose-dark text-white group"
-              onClick={() => scrollToSection('products')}
+              onClick={() => navigate('/shop')}
             >
               Shop Now
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +84,7 @@ export function Hero() {
               size="lg"
               variant="outline"
               className="border-rose text-rose hover:bg-rose hover:text-white"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/contact')}
             >
               Contact Us
             </Button>

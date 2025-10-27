@@ -50,10 +50,11 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="heading-lg text-text-dark mb-4">Get in Touch</h2>
+          <h2 className="heading-lg text-text-dark mb-4">Let's Create Something Beautiful Together</h2>
           <p className="body-lg text-text-light max-w-2xl mx-auto">
-            Have a question or want to place a custom order? We'd love to hear
-            from you.
+            Whether you're planning a wedding, celebrating a milestone, or simply
+            brightening someone's day, we're here to help bring your floral vision
+            to life. Reach out and let's start the conversation.
           </p>
         </motion.div>
 

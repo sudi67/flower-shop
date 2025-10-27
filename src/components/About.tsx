@@ -50,13 +50,19 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="heading-lg text-text-dark mb-6">
-              Crafting Beauty, Naturally
+              A Story Rooted in Passion
             </h2>
+            <p className="body-lg text-text-light mb-4">
+              What began as a small flower cart in 2014 has blossomed into a beloved
+              neighborhood florist. Founded by Emma Hartley, a third-generation
+              florist with a vision for sustainable beauty, Blossom & Bloom was
+              born from a simple belief: flowers should tell stories.
+            </p>
             <p className="body-lg text-text-light mb-8">
-              At Blossom & Bloom, we believe in the power of flowers to bring
-              joy, celebrate moments, and connect people. Our boutique florist
-              has been serving the community for over a decade with a commitment
-              to quality, sustainability, and artistry.
+              Today, we work with local growers within a 50-mile radius, ensuring
+              every bloom is fresh, seasonal, and ethically sourced. Our studio is
+              a creative sanctuary where traditional floristry meets modern design,
+              and where every arrangement is crafted with intention and care.
             </p>
 
             <div className="space-y-6">

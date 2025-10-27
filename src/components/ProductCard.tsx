@@ -19,42 +19,50 @@ export function ProductCard({ product, index }: ProductCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -8 }}
     >
-      <Card className="group overflow-hidden border-border-color hover:shadow-xl transition-all duration-300 bg-white">
+      <Card className="group overflow-hidden border-border-color hover:shadow-2xl hover:shadow-rose/20 transition-all duration-500 bg-white">
         <div className="relative overflow-hidden aspect-[3/4]">
           <motion.img
             src={product.image}
             alt={product.imageAlt}
             className="w-full h-full object-cover"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.6 }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-text-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-text-dark/80 via-text-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           <motion.div
-            className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            initial={{ y: 20 }}
-            whileHover={{ y: 0 }}
+            className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           >
-            <p className="body-sm text-white line-clamp-2">
+            <p className="body-sm text-white line-clamp-3 mb-3">
               {product.description}
             </p>
+            <div className="flex items-center gap-2">
+              <div className="h-px flex-1 bg-white/30" />
+              <span className="body-sm text-white/80">Premium Quality</span>
+            </div>
           </motion.div>
         </div>
 
         <div className="p-6">
-          <h3 className="heading-sm text-text-dark mb-2">{product.name}</h3>
+          <h3 className="heading-sm text-text-dark mb-2 group-hover:text-rose-dark transition-colors">
+            {product.name}
+          </h3>
           <div className="flex items-center justify-between">
-            <span className="heading-sm text-rose-dark">
-              ${product.price.toFixed(2)}
-            </span>
+            <div>
+              <span className="heading-sm text-rose-dark">
+                ${product.price.toFixed(2)}
+              </span>
+              <p className="body-sm text-text-light mt-1">Free delivery</p>
+            </div>
             <Button
               size="sm"
-              className="bg-rose hover:bg-rose-dark text-white"
+              className="bg-rose hover:bg-rose-dark text-white shadow-lg hover:shadow-xl hover:shadow-rose/30 transition-all"
               onClick={() => addToCart(product)}
             >
               <ShoppingCart className="h-4 w-4 mr-2" />
-              Add to Cart
+              Add
             </Button>
           </div>
         </div>

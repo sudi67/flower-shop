@@ -53,6 +53,8 @@
   --accent-cream: #F5E6D3;
   --soft-rose: #F4D4D4;
   --sage-light: #C9D5C0;
+  --gold: #D4AF37;
+  --gold-light: #E8D4A0;
   --text-dark: #2D3436;
   --text-light: #636E72;
   --white: #FFFFFF;
@@ -134,6 +136,8 @@
   --color-accent-cream: var(--accent-cream);
   --color-soft-rose: var(--soft-rose);
   --color-sage-light: var(--sage-light);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
   --color-text-dark: var(--text-dark);
   --color-text-light: var(--text-light);
 }
@@ -142,6 +146,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
@@ -207,4 +216,12 @@
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+@utility gold-accent {
+  color: #D4AF37;
+}
+
+@utility gold-bg {
+  background-color: #D4AF37;
 }
