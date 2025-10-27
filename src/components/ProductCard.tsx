@@ -1,17 +1,31 @@
 import { motion } from 'framer-motion';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Heart, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import type { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
 
 interface ProductCardProps {
   product: Product;
   index: number;
+  onQuickView: (product: Product) => void;
 }
 
-export function ProductCard({ product, index }: ProductCardProps) {
+export function ProductCard({ product, index, onQuickView }: ProductCardProps) {
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+
+  const inWishlist = isInWishlist(product.id);
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (inWishlist) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
 
   return (
     <motion.div
@@ -23,6 +37,29 @@ export function ProductCard({ product, index }: ProductCardProps) {
     >
       <Card className="group overflow-hidden border-border-color hover:shadow-2xl hover:shadow-rose/20 transition-all duration-500 bg-white">
         <div className="relative overflow-hidden aspect-[3/4]">
+          {/* Action Buttons */}
+          <div className="absolute top-4 right-4 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Button
+              size="icon"
+              variant="secondary"
+              className="bg-white/90 hover:bg-white shadow-lg"
+              onClick={handleWishlistToggle}
+            >
+              <Heart
+                className={`h-4 w-4 ${
+                  inWishlist ? 'fill-rose text-rose' : 'text-text-dark'
+                }`}
+              />
+            </Button>
+            <Button
+              size="icon"
+              variant="secondary"
+              className="bg-white/90 hover:bg-white shadow-lg"
+              onClick={() => onQuickView(product)}
+            >
+              <Eye className="h-4 w-4 text-text-dark" />
+            </Button>
+          </div>
           <motion.img
             src={product.image}
             alt={product.imageAlt}

@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CartProvider } from '@/context/CartContext';
+import { WishlistProvider } from '@/context/WishlistContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CartDrawer } from '@/components/CartDrawer';
 import { FloatingCartButton } from '@/components/FloatingCartButton';
+import { LiveChatButton } from '@/components/LiveChatButton';
 import { HomePage } from '@/pages/HomePage';
 import { ShopPage } from '@/pages/ShopPage';
 import { AboutPage } from '@/pages/AboutPage';
@@ -26,7 +28,8 @@ function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <AnimatePresence>
+        <WishlistProvider>
+          <AnimatePresence>
           {isLoading ? (
             <motion.div
               key="loader"
@@ -79,7 +82,9 @@ function App() {
           <Footer />
           <CartDrawer open={isCartOpen} onClose={() => setIsCartOpen(false)} />
           <FloatingCartButton onClick={() => setIsCartOpen(true)} />
+          <LiveChatButton />
         </motion.div>
+        </WishlistProvider>
       </CartProvider>
     </BrowserRouter>
   );

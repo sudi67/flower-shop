@@ -5,7 +5,10 @@ export interface Product {
   description: string;
   image: string;
   imageAlt: string;
-  category: 'roses' | 'tulips' | 'mixed' | 'sunflowers' | 'peonies' | 'lavender';
+  category: 'roses' | 'tulips' | 'mixed' | 'sunflowers' | 'peonies' | 'lavender' | 'orchids' | 'daisies' | 'lilies' | 'gift';
+  inStock?: boolean;
+  rating?: number; // 0-5
+  tags?: string[];
 }
 
 export const products: Product[] = [
@@ -14,8 +17,8 @@ export const products: Product[] = [
     name: 'Classic Rose Bouquet',
     price: 49.99,
     description: 'Hand-selected premium roses in soft blush tones, elegantly wrapped in sustainable paper. Each stem is carefully chosen for its perfect bloom and lasting beauty. A timeless expression of love and admiration.',
-    image: 'https://images.unsplash.com/photo-1712258093579-190d48841a93?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxfHxyb3NlcyUyMGJvdXF1ZXQlMjBwaW5rJTIwZmxvd2Vyc3xlbnwwfDF8fHwxNzYxNTQ5NTkyfDA&ixlib=rb-4.1.0&q=85',
-    imageAlt: 'Pink roses bouquet wrapped elegantly - Aleyna Çatak on Unsplash',
+    image: 'https://images.unsplash.com/photo-1471673162143-ccd9f0f2f81b?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Classic bouquet of pink roses',
     category: 'roses',
   },
   {
@@ -23,8 +26,8 @@ export const products: Product[] = [
     name: 'Spring Tulip Arrangement',
     price: 39.99,
     description: 'A breath of spring captured in delicate pastel tulips. Sourced from local growers, these graceful blooms bring fresh energy and renewal to any space. Includes a handcrafted ceramic vase.',
-    image: 'https://images.unsplash.com/photo-1645370930024-61bacbc3e79f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxfHx0dWxpcHMlMjBzcHJpbmclMjBmbG93ZXJzJTIwdmFzZXxlbnwwfDF8fHwxNzYxNTQ5NTkxfDA&ixlib=rb-4.1.0&q=85',
-    imageAlt: 'Fresh tulips in pastel colors - Nadiia Shuran on Unsplash',
+    image: 'https://images.unsplash.com/photo-1457089328109-e5d9bd499191?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Pastel spring tulip arrangement in vase',
     category: 'tulips',
   },
   {
@@ -32,8 +35,8 @@ export const products: Product[] = [
     name: 'Vibrant Mixed Bouquet',
     price: 59.99,
     description: 'A symphony of colors and textures featuring the season\'s finest blooms. Each arrangement is unique, combining complementary flowers for a stunning visual impact. Perfect for celebrations and special moments.',
-    image: 'https://images.unsplash.com/photo-1702076403493-b4edd5219f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHw0fHxtaXhlZCUyMGZsb3dlcnMlMjBib3VxdWV0JTIwY29sb3JmdWwlMjBibG9vbXN8ZW58MHwxfHx8MTc2MTU0OTU5MXww&ixlib=rb-4.1.0&q=85',
-    imageAlt: 'Colorful mixed flower bouquet - Karolina Bobek on Unsplash',
+    image: 'https://images.unsplash.com/photo-1468327768560-75b778cbb551?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Vibrant mixed seasonal bouquet',
     category: 'mixed',
   },
   {
@@ -41,8 +44,8 @@ export const products: Product[] = [
     name: 'Cheerful Sunflower Bundle',
     price: 44.99,
     description: 'Radiant sunflowers that capture the warmth of summer sunshine. These bold, cheerful blooms are guaranteed to brighten any room and lift spirits. Sustainably grown and hand-tied with natural twine.',
-    image: 'https://images.unsplash.com/photo-1564077393805-57584a46c88d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxfHxzdW5mbG93ZXJzJTIweWVsbG93JTIwZmxvd2VycyUyMGJvdXF1ZXR8ZW58MHwxfHx5ZWxsb3d8MTc2MTU0OTU5MXww&ixlib=rb-4.1.0&q=85',
-    imageAlt: 'Bright sunflowers bouquet - No Revisions on Unsplash',
+    image: 'https://images.unsplash.com/photo-1508182311256-e3f7d50c8dff?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Hand-tied bouquet of yellow sunflowers',
     category: 'sunflowers',
   },
   {
@@ -50,8 +53,8 @@ export const products: Product[] = [
     name: 'Romantic Peony Collection',
     price: 69.99,
     description: 'Luxurious peonies in soft pink hues, known for their lush, romantic blooms and delicate fragrance. A premium choice for weddings, anniversaries, and moments that deserve something extraordinary.',
-    image: 'https://images.unsplash.com/photo-1759005617497-6bca92568a10?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxfHxwZW9uaWVzJTIwcGluayUyMGZsb3dlcnMlMjByb21hbnRpYyUyMGJvdXF1ZXR8ZW58MHwxfHx8MTc2MTU0OTU5MXww&ixlib=rb-4.1.0&q=85',
-    imageAlt: 'Soft pink peonies - Saniye NEBİOGLU on Unsplash',
+    image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Romantic bouquet of pink peonies',
     category: 'peonies',
   },
   {
@@ -59,8 +62,83 @@ export const products: Product[] = [
     name: 'Calming Lavender Stems',
     price: 34.99,
     description: 'Aromatic lavender stems, naturally dried to preserve their soothing fragrance and rustic beauty. Perfect for creating a tranquil atmosphere. Harvested from organic farms and bundled with care.',
-    image: 'https://images.unsplash.com/photo-1601853522292-18b6484ef47c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxfHxsYXZlbmRlciUyMHB1cnBsZSUyMGZsb3dlcnMlMjBkcmllZCUyMGZsb3dlcnN8ZW58MHwxfHxwdXJwbGV8MTc2MTU0OTU5NXww&ixlib=rb-4.1.0&q=85',
-    imageAlt: 'Purple lavender stems - Jacob Thomas on Unsplash',
+    image: 'https://images.unsplash.com/photo-1502989642968-94fbdc9eace4?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Bundle of dried purple lavender stems',
     category: 'lavender',
+    inStock: true,
+    rating: 4.7,
+    tags: ['aromatic', 'dried', 'calming'],
+  },
+  {
+    id: 7,
+    name: 'White Lily Elegance',
+    price: 54.99,
+    description: 'Elegant white lilies with a subtle fragrance, arranged with lush greenery. A refined choice for sympathy, gratitude, or minimalist decor.',
+    image: 'https://images.unsplash.com/photo-1560869713-7aa84f7a7b36?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Elegant white lily bouquet',
+    category: 'lilies',
+    inStock: true,
+    rating: 4.6,
+    tags: ['elegant', 'white', 'minimal'],
+  },
+  {
+    id: 8,
+    name: 'Orchid Grace Duo',
+    price: 79.99,
+    description: 'Two premium phalaenopsis orchids in a ceramic planter. Long-lasting blooms that elevate any space with a modern, sculptural look.',
+    image: 'https://images.unsplash.com/photo-1429087969512-1e85aab2683d?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Phalaenopsis orchids duo in ceramic planter',
+    category: 'orchids',
+    inStock: true,
+    rating: 4.8,
+    tags: ['long-lasting', 'premium', 'modern'],
+  },
+  {
+    id: 9,
+    name: 'Cheery Daisy Meadow',
+    price: 29.99,
+    description: 'A bright mix of daisies in sunny hues, perfect for birthdays and get-well wishes. Affordable and full of joy.',
+    image: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Cheerful mixed daisies bouquet',
+    category: 'daisies',
+    inStock: true,
+    rating: 4.4,
+    tags: ['budget', 'bright', 'birthday'],
+  },
+  {
+    id: 10,
+    name: 'Pastel Garden Mix',
+    price: 64.99,
+    description: 'A curated pastel palette featuring garden roses, ranunculus, and seasonal fillers. Airy and romantic, ideal for showers and anniversaries.',
+    image: 'https://images.unsplash.com/photo-1447877085163-3cce903855cd?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Pastel garden-style bouquet',
+    category: 'mixed',
+    inStock: true,
+    rating: 4.9,
+    tags: ['romantic', 'pastel', 'premium'],
+  },
+  {
+    id: 11,
+    name: 'Sunset Rose Medley',
+    price: 57.99,
+    description: 'Roses in sunset tones—peach, coral, and apricot—hand-tied with eucalyptus. A modern twist on a classic favorite.',
+    image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Bouquet of roses in peach and coral hues',
+    category: 'roses',
+    inStock: true,
+    rating: 4.5,
+    tags: ['roses', 'modern', 'eucalyptus'],
+  },
+  {
+    id: 12,
+    name: 'Gift Card',
+    price: 25.0,
+    description: 'Let them choose their favorite blooms. Digital gift card delivered instantly via email.',
+    image: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?crop=entropy&cs=srgb&fm=jpg&q=85',
+    imageAlt: 'Digital gift card with envelope',
+    category: 'gift',
+    inStock: true,
+    rating: 5,
+    tags: ['digital', 'instant'],
   },
 ];
